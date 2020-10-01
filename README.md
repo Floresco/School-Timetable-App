@@ -6,7 +6,7 @@
 </h4>
 
 [![ForTheBadge built-with-love](http://ForTheBadge.com/images/badges/built-with-love.svg)](https://GitHub.com/Naereen/)
-[![Check-It-Out](https://forthebadge.com/images/badges/check-it-out.svg)](#)
+[![Check-It-Out](https://forthebadge.com/images/badges/check-it-out.svg)](https://github.com/Abdi-Adan/School-Timetable-App/edit/master/README.md)
 [![forthebadge](https://forthebadge.com/images/badges/winter-is-coming.svg)](https://forthebadge.com)
 
 
