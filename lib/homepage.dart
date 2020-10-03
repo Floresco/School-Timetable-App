@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:line_icons/line_icons.dart';
 import 'package:table_calendar/table_calendar.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -17,119 +18,103 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(
-        children: [
-          Stack(
-            children: [
-              Container(
-                decoration: BoxDecoration(
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black.withOpacity(.3),
-                      blurRadius: 5,
-                      spreadRadius: 1,
-                    )
-                  ],
-                  color: Colors.orange,
-                  borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(30),
-                    bottomRight: Radius.circular(30),
+    return Scaffold(
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Stack(
+              children: [
+                Container(
+                  decoration: BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(.3),
+                        blurRadius: 5,
+                        spreadRadius: 1,
+                      )
+                    ],
+                    color: Colors.orange,
+                    borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(30),
+                      bottomRight: Radius.circular(30),
+                    ),
                   ),
-                ),
-                padding: EdgeInsets.only(
-                  right: 10,
-                  left: 10,
-                  top: 10,
-                  bottom: 20,
-                ),
-                child: Column(
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 0),
-                      child: Card(
-                        elevation: 5,
-                        child: TableCalendar(
-                          initialCalendarFormat: CalendarFormat.week,
-                          calendarStyle: CalendarStyle(
-                            todayColor: Colors.orange,
-                            selectedColor: Colors.deepOrange,
-                            todayStyle: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white,
+                  padding: EdgeInsets.only(
+                    right: 10,
+                    left: 10,
+                    top: 10,
+                    bottom: 20,
+                  ),
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 0),
+                        child: Card(
+                          elevation: 5,
+                          child: TableCalendar(
+                            initialCalendarFormat: CalendarFormat.week,
+                            calendarStyle: CalendarStyle(
+                              todayColor: Colors.orange,
+                              selectedColor: Colors.deepOrange,
+                              todayStyle: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white,
+                              ),
+                              selectedStyle: TextStyle(
+                                color: Colors.white,
+                              ),
                             ),
-                            selectedStyle: TextStyle(
-                              color: Colors.white,
+                            headerStyle: HeaderStyle(
+                              centerHeaderTitle: true,
+                              formatButtonDecoration: BoxDecoration(
+                                color: Colors.orange,
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                              formatButtonTextStyle: TextStyle(
+                                color: Colors.white,
+                              ),
+                              formatButtonShowsNext: false,
                             ),
+                            startingDayOfWeek: StartingDayOfWeek.monday,
+                            onDaySelected: (date, events) {
+                              print(date.toIso8601String());
+                            },
+                            calendarController: _calendarController,
                           ),
-                          headerStyle: HeaderStyle(
-                            centerHeaderTitle: true,
-                            formatButtonDecoration: BoxDecoration(
-                              color: Colors.orange,
-                              borderRadius: BorderRadius.circular(20),
-                            ),
-                            formatButtonTextStyle: TextStyle(
-                              color: Colors.white,
-                            ),
-                            formatButtonShowsNext: false,
-                          ),
-                          startingDayOfWeek: StartingDayOfWeek.monday,
-                          onDaySelected: (date, events) {
-                            print(date.toIso8601String());
-                          },
-                          calendarController: _calendarController,
                         ),
                       ),
-                    ),
-                    Welcome(),
-                  ],
-                ),
-              ),
-            ],
-          ),
-          SizedBox(
-            height: 5,
-          ),
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 15),
-            child: Column(
-              children: [
-                SizedBox(
-                  height: 20,
-                ),
-                buildClassItem(),
-                buildClassItem(),
-                buildClassItem(),
-                buildClassItem(),
-                buildClassItem(),
-                buildClassItem(),
-                buildClassItem(),
-                SizedBox(
-                  height: 50,
+                      Welcome(),
+                    ],
+                  ),
                 ),
               ],
             ),
-          )
-        ],
-      ),
-    );
-  }
-
-  RichText buildTitleRow(String title, int number) {
-    return RichText(
-      text: TextSpan(
-          text: title,
-          style: TextStyle(
-              fontSize: 16, color: Colors.black, fontWeight: FontWeight.bold),
-          children: [
-            TextSpan(
-              text: "($number)",
-              style: TextStyle(
-                  fontSize: 16,
-                  color: Colors.grey,
-                  fontWeight: FontWeight.normal),
+            SizedBox(
+              height: 5,
             ),
-          ]),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 15),
+              child: Column(
+                children: [
+                  SizedBox(
+                    height: 20,
+                  ),
+                  buildClassItem(),
+                  buildClassItem(),
+                  buildClassItem(),
+                  buildClassItem(),
+                  buildClassItem(),
+                  buildClassItem(),
+                  buildClassItem(),
+                  SizedBox(
+                    height: 50,
+                  ),
+                ],
+              ),
+            )
+          ],
+        ),
+      ),
     );
   }
 
@@ -146,13 +131,12 @@ class _MyHomePageState extends State<MyHomePage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  "07:00",
+                  "07:00 am",
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),
                 Text(
-                  "am",
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold, color: Colors.grey),
+                  "08:00 am",
+                  style: TextStyle(fontWeight: FontWeight.bold),
                 ),
               ],
             ),
@@ -178,7 +162,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 Row(
                   children: [
                     Icon(
-                      Icons.location_on,
+                      Icons.class_,
                       color: Colors.orange,
                       size: 20,
                     ),
@@ -188,7 +172,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     Container(
                       width: MediaQuery.of(context).size.width - 160,
                       child: Text(
-                        "Room C1, Faculty of Art & Design Building",
+                        "Class: Biology",
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(color: Colors.grey, fontSize: 13),
                       ),
@@ -200,16 +184,16 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
                 Row(
                   children: [
-                    CircleAvatar(
-                      backgroundImage: NetworkImage(
-                          "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=200&q=80"),
-                      radius: 10,
+                    Icon(
+                      LineIcons.pencil_square_o,
+                      color: Colors.orange,
+                      size: 20,
                     ),
                     SizedBox(
                       width: 5,
                     ),
                     Text(
-                      "Gabriel Sutton",
+                      " Teacher: Gabriel Sutton",
                       style: TextStyle(color: Colors.grey, fontSize: 13),
                     )
                   ],
