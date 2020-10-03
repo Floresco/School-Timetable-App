@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:table_calendar/table_calendar.dart';
 
 class MyHomePage extends StatefulWidget {
   @override
@@ -6,141 +7,93 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  CalendarController _calendarController;
+
+  @override
+  void initState() {
+    super.initState();
+    _calendarController = CalendarController();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        Container(
-          decoration: BoxDecoration(
-              gradient: LinearGradient(
-                  colors: [Colors.orange, Colors.deepOrange],
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                  stops: [0.6, 0.3])),
-          padding: EdgeInsets.symmetric(horizontal: 30, vertical: 30),
-          child: Column(
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          Stack(
             children: [
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Container(
-                    width: 40,
-                    height: 40,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(30),
-                      border: Border.all(width: 1, color: Colors.white),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.blueGrey.withOpacity(0.2),
-                          blurRadius: 12,
-                          spreadRadius: 8,
-                        )
-                      ],
-                      image: DecorationImage(
-                        fit: BoxFit.cover,
-                        image: NetworkImage(
-                            "https://images.unsplash.com/photo-1541647376583-8934aaf3448a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1234&q=80"),
-                      ),
-                    ),
+              Container(
+                decoration: BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(.3),
+                      blurRadius: 5,
+                      spreadRadius: 1,
+                    )
+                  ],
+                  color: Colors.orange,
+                  borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(30),
+                    bottomRight: Radius.circular(30),
                   ),
-                  SizedBox(
-                    width: 20,
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        children: [
-                          Text(
-                            "Hi Jackie",
-                            style: TextStyle(
-                              fontSize: 25,
-                              fontWeight: FontWeight.w900,
+                ),
+                padding: EdgeInsets.only(
+                  right: 10,
+                  left: 10,
+                  top: 10,
+                  bottom: 20,
+                ),
+                child: Column(
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 0),
+                      child: Card(
+                        elevation: 5,
+                        child: TableCalendar(
+                          initialCalendarFormat: CalendarFormat.week,
+                          calendarStyle: CalendarStyle(
+                            todayColor: Colors.orange,
+                            selectedColor: Colors.deepOrange,
+                            todayStyle: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                            ),
+                            selectedStyle: TextStyle(
                               color: Colors.white,
                             ),
                           ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Text(
-                        "Here is a list of schedules for today\nthat you need to check...",
-                        style: TextStyle(
-                          fontSize: 13,
-                          color: Colors.white,
+                          headerStyle: HeaderStyle(
+                            centerHeaderTitle: true,
+                            formatButtonDecoration: BoxDecoration(
+                              color: Colors.orange,
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            formatButtonTextStyle: TextStyle(
+                              color: Colors.white,
+                            ),
+                            formatButtonShowsNext: false,
+                          ),
+                          startingDayOfWeek: StartingDayOfWeek.monday,
+                          onDaySelected: (date, events) {
+                            print(date.toIso8601String());
+                          },
+                          calendarController: _calendarController,
                         ),
                       ),
-                    ],
-                  )
-                ],
-              ),
-              Container(
-                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                alignment: Alignment.topCenter,
-                color: Color(0xFFF0F0F0),
-                height: MediaQuery.of(context).size.height,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Row(
-                      children: [
-                        Icon(Icons.calendar_today, color: Colors.grey),
-                        SizedBox(
-                          width: 15,
-                        ),
-                        RichText(
-                          text: TextSpan(
-                              text: "Oct",
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                color: Color(0XFF263064),
-                                fontSize: 22,
-                              ),
-                              children: [
-                                TextSpan(
-                                  text: " 2009",
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.normal,
-                                    fontSize: 16,
-                                  ),
-                                ),
-                              ]),
-                        ),
-                      ],
                     ),
-                    Text(
-                      "Today",
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: Color(0XFF3E3993),
-                      ),
-                    )
+                    Welcome(),
                   ],
                 ),
               ),
             ],
           ),
-        ),
-        Positioned(
-          top: 130,
-          child: Container(
+          SizedBox(
+            height: 5,
+          ),
+          Padding(
             padding: EdgeInsets.symmetric(horizontal: 15),
-            height: MediaQuery.of(context).size.height - 245,
-            width: MediaQuery.of(context).size.width,
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(20),
-            ),
-            child: ListView(
+            child: Column(
               children: [
-                SizedBox(
-                  height: 20,
-                ),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 10),
-                  child: buildTitleRow("TODAY CLASSES", 3),
-                ),
                 SizedBox(
                   height: 20,
                 ),
@@ -156,34 +109,27 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ],
             ),
-          ),
-        )
-      ],
+          )
+        ],
+      ),
     );
   }
 
-  Row buildTitleRow(String title, int number) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        RichText(
-          text: TextSpan(
-              text: title,
+  RichText buildTitleRow(String title, int number) {
+    return RichText(
+      text: TextSpan(
+          text: title,
+          style: TextStyle(
+              fontSize: 16, color: Colors.black, fontWeight: FontWeight.bold),
+          children: [
+            TextSpan(
+              text: "($number)",
               style: TextStyle(
-                  fontSize: 12,
-                  color: Colors.black,
-                  fontWeight: FontWeight.bold),
-              children: [
-                TextSpan(
-                  text: "($number)",
-                  style: TextStyle(
-                      fontSize: 12,
-                      color: Colors.grey,
-                      fontWeight: FontWeight.normal),
-                ),
-              ]),
-        ),
-      ],
+                  fontSize: 16,
+                  color: Colors.grey,
+                  fontWeight: FontWeight.normal),
+            ),
+          ]),
     );
   }
 
@@ -204,7 +150,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),
                 Text(
-                  "AM",
+                  "am",
                   style: TextStyle(
                       fontWeight: FontWeight.bold, color: Colors.grey),
                 ),
@@ -226,11 +172,14 @@ class _MyHomePageState extends State<MyHomePage> {
                     overflow: TextOverflow.ellipsis,
                   ),
                 ),
+                SizedBox(
+                  height: 3,
+                ),
                 Row(
                   children: [
                     Icon(
                       Icons.location_on,
-                      color: Colors.grey,
+                      color: Colors.orange,
                       size: 20,
                     ),
                     SizedBox(
@@ -245,6 +194,9 @@ class _MyHomePageState extends State<MyHomePage> {
                       ),
                     )
                   ],
+                ),
+                SizedBox(
+                  height: 3,
                 ),
                 Row(
                   children: [
@@ -266,6 +218,74 @@ class _MyHomePageState extends State<MyHomePage> {
             )
           ],
         ),
+      ),
+    );
+  }
+}
+
+class Welcome extends StatelessWidget {
+  const Welcome({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(top: 15, bottom: 5, right: 30, left: 30),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            width: 40,
+            height: 40,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(30),
+              border: Border.all(width: 1, color: Colors.white),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.blueGrey.withOpacity(0.2),
+                  blurRadius: 12,
+                  spreadRadius: 8,
+                )
+              ],
+              image: DecorationImage(
+                fit: BoxFit.cover,
+                image: NetworkImage(
+                    "https://images.unsplash.com/photo-1541647376583-8934aaf3448a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1234&q=80"),
+              ),
+            ),
+          ),
+          SizedBox(
+            width: 20,
+          ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                children: [
+                  Text(
+                    "Hi Adan",
+                    style: TextStyle(
+                      fontSize: 25,
+                      fontWeight: FontWeight.w900,
+                      color: Colors.white,
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Text(
+                "Here is a list of classes scheduled for\ntoday that you need to check...",
+                style: TextStyle(
+                  fontSize: 13,
+                  color: Colors.white,
+                ),
+              ),
+            ],
+          )
+        ],
       ),
     );
   }
