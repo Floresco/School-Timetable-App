@@ -50,12 +50,7 @@ class _RootState extends State<Root> {
             ],
           ),
           bottomNavigationBar: Container(
-            decoration: BoxDecoration(color: Colors.white, boxShadow: [
-              BoxShadow(
-                  blurRadius: 5,
-                  spreadRadius: 2,
-                  color: Colors.black.withOpacity(.1))
-            ]),
+            decoration: BoxDecoration(color: Colors.transparent),
             child: SafeArea(
               child: Padding(
                 padding:
