@@ -22,17 +22,26 @@ A Simple school timetable cross-platform-app implimented using Google Calendar A
 
 ## ✨Features and Checklists: Version 1
 
-* [ ] Wireframing and Rapid Prototyping, UX/UI Design
-* [ ] Frontend pages and widgets
-* [ ] Firebase Authentication - EmailPassword, Google and Phone Verification
-* [ ] Google Calendar API Consumption
-* [ ] Students Views
-* [ ] Teachers Full CRUD Setting Classes
-* [ ] Adding automated tests and CI/CD
+* [x] Wireframing and Rapid Prototyping, UX/UI Design
+* [x] Frontend pages and widgets
+* [x] Android App Firebase Intergration
+* [ ] iOS App Firebase Intergration
+* [x] Firebase Authentication - EmailPassword
+* [ ] Firebase Authentication - OAuth2 Google Auth Provider
+* [ ] Cloudfirestore database users, classes and teachers collection
+* [ ] Google Calendar API Write, read, update, delete, Lessons
+* [ ] Adding automated tests - auth (email and google), cloudfirestore CRUD, GoogleCalendarAPI CRUD, Widget test
+* [ ] Github actions, automated tests and CI/CD
 * [ ] Documentation, UI writting etc
-* [ ] 🚀Going Live on Playstore
+* [ ] Prepping android, iOS apps for release
+* [ ] 🚀Going Live on Google Playstore
 
 ## 🔌 Plugins
 
-|                           Name                            |      Usage       |
-| :-------------------------------------------------------: | :--------------: |
+|                           Name                            |      Usage                |
+| :-------------------------------------------------------: | :-----------------------: |
+|                     firebase_core: ^0.4.0+9               |  Firebase Intergration    |
+|                     firebase_auth: ^0.14.0+5              |  Authentication           |
+|                     google_sign_in: ^4.5.4                |  OAuth2 google provider   |
+|                     firebase_analytics: ^5.0.2            |  Firebase Analytics       |
+|                     table_calendar: ^2.2.3                |  Calendar Package UI      |
