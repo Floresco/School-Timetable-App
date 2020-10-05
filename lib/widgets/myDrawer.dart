@@ -1,10 +1,18 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-class MyDrawer extends StatelessWidget {
+final FirebaseAuth _auth = FirebaseAuth.instance;
+
+class MyDrawer extends StatefulWidget {
   const MyDrawer({
     Key key,
   }) : super(key: key);
 
+  @override
+  _MyDrawerState createState() => _MyDrawerState();
+}
+
+class _MyDrawerState extends State<MyDrawer> {
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -18,7 +26,8 @@ class MyDrawer extends StatelessWidget {
               child: Image(
                 fit: BoxFit.cover,
                 image: NetworkImage(
-                    'https://raw.githubusercontent.com/Abdi-Adan/LiteCart/master/assets/profile/as.png',),
+                  'https://raw.githubusercontent.com/Abdi-Adan/LiteCart/master/assets/profile/as.png',
+                ),
               ),
             ),
             decoration: BoxDecoration(
@@ -118,10 +127,28 @@ class MyDrawer extends StatelessWidget {
             title: Text('Settings'),
             onTap: () {},
           ),
-          ListTile(
-            leading: Icon(Icons.settings_power),
-            title: Text('Logout'),
-            onTap: () {},
+          InkWell(
+            onTap: () async {
+              final FirebaseUser user = await _auth.currentUser();
+              if (user == null) {
+                Scaffold.of(context).showSnackBar(
+                  const SnackBar(
+                      content: Text("There is no current user signed In")),
+                );
+                return;
+              }
+              await _auth.signOut();
+              final String uid = user.uid;
+              Scaffold.of(context).showSnackBar(
+                SnackBar(
+                    content: Text(uid + " user has successfully signed out!")),
+              );
+            },
+            child: ListTile(
+              leading: Icon(Icons.settings_power),
+              title: Text('Logout'),
+              onTap: () {},
+            ),
           ),
         ],
       ),
