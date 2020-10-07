@@ -1,7 +1,7 @@
 name: timetable_app
 description: A new Flutter project.
 
-publish_to: 'none' 
+publish_to: "none"
 
 version: 1.0.0+1
 
@@ -11,26 +11,23 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  
 
   cupertino_icons: ^0.1.3
   firebase_core: ^0.4.0+9
   firebase_auth: ^0.14.0+5
   google_sign_in: ^4.5.4
   firebase_analytics: ^5.0.2
+  shared_preferences: ^0.5.12
   table_calendar: ^2.2.3
   flutter_datetime_picker: ^1.4.0
   google_nav_bar: ^3.0.0
   line_icons: ^0.2.0
-  
-  
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
 flutter:
-
   uses-material-design: true
 
   # assets:

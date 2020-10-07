@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:timetable_app/auth/signin.dart';
 import 'package:timetable_app/auth/signup.dart';
+import 'package:timetable_app/root.dart';
 
 
 void main() {
@@ -19,6 +21,11 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: SignUp(),
+      routes: {
+        "root/": (context) => Root(),
+        "signUp/": (context) => SignUp(),
+        "signIn/": (context) => SignIn(),
+      },
     );
   }
 }

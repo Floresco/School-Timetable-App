@@ -45,3 +45,4 @@ A Simple school timetable cross-platform-app implimented using Google Calendar A
 |                     firebase_analytics: ^5.0.2            |  Firebase Analytics       |
 |                     table_calendar: ^2.2.3                |  Calendar Package UI      |
 |                     flutter_datetime_picker: ^1.4.0       |  DateTimePicker  UI       |
+|                     shared_preferences: ^0.5.12           |  Store User Auth data     |
