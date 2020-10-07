@@ -25,7 +25,6 @@ A Simple school timetable cross-platform-app implimented using Google Calendar A
 * [x] Wireframing and Rapid Prototyping, UX/UI Design
 * [x] Frontend pages and widgets
 * [x] Android App Firebase Intergration
-* [ ] iOS App Firebase Intergration
 * [x] Firebase Authentication - EmailPassword
 * [ ] Firebase Authentication - OAuth2 Google Auth Provider
 * [ ] Cloudfirestore database users, classes and teachers collection
@@ -45,3 +44,4 @@ A Simple school timetable cross-platform-app implimented using Google Calendar A
 |                     google_sign_in: ^4.5.4                |  OAuth2 google provider   |
 |                     firebase_analytics: ^5.0.2            |  Firebase Analytics       |
 |                     table_calendar: ^2.2.3                |  Calendar Package UI      |
+|                     flutter_datetime_picker: ^1.4.0       |  DateTimePicker  UI       |

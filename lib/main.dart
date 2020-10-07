@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:timetable_app/auth/signup.dart';
-// import 'package:timetable_app/root.dart';
 
 
 void main() {
