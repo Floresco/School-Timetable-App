@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:line_icons/line_icons.dart';
-import 'package:timetable_app/homepage.dart';
+import 'package:timetable_app/Pages/homepage.dart';
 import 'package:timetable_app/auth/signup.dart';
-import 'package:timetable_app/widgets/classes.dart';
-import 'package:timetable_app/widgets/teachers.dart';
+import 'package:timetable_app/Pages/classes.dart';
+import 'package:timetable_app/Pages/teachers.dart';
 
 final FirebaseAuth _auth = FirebaseAuth.instance;
 
