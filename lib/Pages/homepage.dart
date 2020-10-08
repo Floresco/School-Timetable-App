@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
+import 'package:timetable_app/Pages/insertEvent.dart';
 import 'package:timetable_app/widgets/welcome.dart';
 import 'package:timetable_app/widgets/lessonCard.dart';
 
@@ -20,6 +21,14 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (BuildContext context) => InsertEvent()));
+        },
+      ),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -130,4 +139,3 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
-

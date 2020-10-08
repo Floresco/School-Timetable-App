@@ -20,6 +20,12 @@ class _RootState extends State<Root> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(
+        primaryColor: Colors.orange,
+        primarySwatch: Colors.orange,
+        accentColor: Colors.orangeAccent,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+      ),
       debugShowCheckedModeBanner: false,
       home: DefaultTabController(
         length: 3,

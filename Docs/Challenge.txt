@@ -1,0 +1,47 @@
+Background
+
+The technical interview will be built around a coding assignment that is designed to screen for the following
+basic skills:
+
+- Experience with native (Android - Java, Kotlin or iOS - Swift, Objective C) and hybrid (React Native, 
+  Flutter etc.) mobile app development
+- experience working with REST and/or GraphQL APIs
+- experience with a variety of authentication techniques, including OAuth 2, OpenID Connect, JWT and session 
+  authentication
+- a basic understanding of UX design techniques e.g. wireframing, prototyping, usability testing etc.
+
+We will be particularly interested in:
+
+- visual design (layout and styling) skills
+- Experience delivery apps to the Play or Apple app store (full cycle to publication)
+- UI writing and documentation authoring skills.
+
+The following professional skills are important:
+
+- testing - if you can show that you know and LOVE automated testing, you’ll have a major advantage
+- Mobile app release and testing tools e.g. TestFlight, App Tester
+- continuous integration (CI) and continuous development (CD)
+
+In order to assess these skills, we will ask you to complete a coding assignment ahead of the technical
+interview. The technical interview will be developed around the coding assignment and the skills
+outlined above.
+
+Screening Test
+
+The code written for this assignment should be placed on your personal GitHub or Gitlab.
+
+1. DESIGN a simple school timetable app. The guidelines are:
+- Consider what your school teachers did manually to schedule lessons
+- Keep it small (maybe 2-3 pages, 2-3 classes, 2-3 teachers, 5 or so lessons per class)
+
+2. Consider how an app like this would CONNECT to the Google Calendar API (
+   https://developers.google.com/calendar ) and IMPLEMENT it, using Google Calendar as the
+   backing API. You can use any front-end framework(s) that you like.
+
+3. ADD automated tests (unit, integration and end-to-end/UI).
+
+4. SET UP continuous integration and continuous deployment
+
+5. PREPARE an APK (or iOS equivalent) that can be installed on an interviewer’s phone.
+
+6. PRESENT or document the app in any format that you’d like e.g. blog post or video.

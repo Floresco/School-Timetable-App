@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:timetable_app/auth/signin.dart';
 import 'package:timetable_app/root.dart';
 
@@ -155,10 +156,12 @@ class _SignUpState extends State<SignUp> {
             email: _emailController.text, password: _passwordController.text))
         .user;
     if (user != null) {
-      setState(() {
+      setState(() async{
         _success = true;
         _userEmail = user.email;
+        SharedPreferences prefs = await SharedPreferences.getInstance();
         final String uid = user.uid;
+        await prefs.setString('uid', uid);
         debugPrint(uid + "user signed Up Successfully");
       });
     } else {
