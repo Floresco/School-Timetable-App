@@ -13,7 +13,7 @@ class _ClassesState extends State<Classes> {
         onPressed: () {},
         backgroundColor: Colors.orange,
         tooltip: "Add a new class",
-        child: Icon(Icons.add),
+        child: Icon(Icons.add, color: Colors.white,),
       ),
       body: GridView.count(
         crossAxisSpacing: 0.3,

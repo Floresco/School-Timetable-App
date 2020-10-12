@@ -99,61 +99,61 @@ class _InsertEventState extends State<InsertEvent> {
                     ),
                   ),
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.symmetric(vertical: 5),
-                      child: DropdownButton(
-                        value: _teacher,
-                        items: [
-                          DropdownMenuItem(
-                            child: Text("Mr. Santon Gabriel"),
-                          ),
-                          DropdownMenuItem(
-                            child: Text("Mr. Adan Abdi"),
-                          ),
-                          DropdownMenuItem(
-                            child: Text("Mr. Santon Gabriel"),
-                          ),
-                          DropdownMenuItem(
-                            child: Text("Mr. Santon Gabriel"),
-                          ),
-                        ],
-                        onChanged: (value) {
-                          setState(() {
-                            _teacher = value;
-                          });
-                        },
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.symmetric(vertical: 5),
-                      child: DropdownButton(
-                        value: _class,
-                        items: [
-                          DropdownMenuItem(
-                            child: Text("Biology"),
-                          ),
-                          DropdownMenuItem(
-                            child: Text("Chemistry"),
-                          ),
-                          DropdownMenuItem(
-                            child: Text("Biology"),
-                          ),
-                          DropdownMenuItem(
-                            child: Text("Biology"),
-                          ),
-                        ],
-                        onChanged: (value) {
-                          setState(() {
-                            _class = value;
-                          });
-                        },
-                      ),
-                    ),
-                  ],
-                ),
+                // Row(
+                //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                //   children: [
+                //     Padding(
+                //       padding: EdgeInsets.symmetric(vertical: 5),
+                //       child: DropdownButton(
+                //         value: _teacher,
+                //         items: [
+                //           DropdownMenuItem(
+                //             child: Text("Mr. Santon Gabriel"),
+                //           ),
+                //           DropdownMenuItem(
+                //             child: Text("Mr. Adan Abdi"),
+                //           ),
+                //           DropdownMenuItem(
+                //             child: Text("Mr. Santon Gabriel"),
+                //           ),
+                //           DropdownMenuItem(
+                //             child: Text("Mr. Santon Gabriel"),
+                //           ),
+                //         ],
+                //         onChanged: (value) {
+                //           setState(() {
+                //             _teacher = value;
+                //           });
+                //         },
+                //       ),
+                //     ),
+                //     Padding(
+                //       padding: EdgeInsets.symmetric(vertical: 5),
+                //       child: DropdownButton(
+                //         value: _class,
+                //         items: [
+                //           DropdownMenuItem(
+                //             child: Text("Biology"),
+                //           ),
+                //           DropdownMenuItem(
+                //             child: Text("Chemistry"),
+                //           ),
+                //           DropdownMenuItem(
+                //             child: Text("Biology"),
+                //           ),
+                //           DropdownMenuItem(
+                //             child: Text("Biology"),
+                //           ),
+                //         ],
+                //         onChanged: (value) {
+                //           setState(() {
+                //             _class = value;
+                //           });
+                //         },
+                //       ),
+                //     ),
+                //   ],
+                // ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [

@@ -22,6 +22,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.add, color: Colors.white,),
         onPressed: () {
           Navigator.push(
               context,
@@ -119,14 +120,11 @@ class _MyHomePageState extends State<MyHomePage> {
                       ),
                     ),
                   ),
-                  Expanded(
-                    child: ListView.builder(
-                      itemBuilder: (BuildContext context, int index) {
-                        return LessonCard();
-                      },
-                      itemCount: 10,
-                    ),
-                  ),
+                  LessonCard(),
+                  LessonCard(),
+                  LessonCard(),
+                  LessonCard(),
+                  LessonCard(),
                   SizedBox(
                     height: 50,
                   ),

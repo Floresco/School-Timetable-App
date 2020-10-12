@@ -9,14 +9,16 @@ class Teachers extends StatelessWidget {
         onPressed: () {},
         backgroundColor: Colors.orange,
         tooltip: "Add a new teacher",
-        child: Icon(Icons.add),
+        child: Icon(Icons.add, color: Colors.white,),
       ),
-      body: Expanded(
-        child: ListView.builder(
-          itemCount: 10,
-          itemBuilder: (BuildContext context, int index) {
-            return Ateacher();
-          },
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Ateacher(),
+            Ateacher(),
+            Ateacher(),
+            Ateacher(),
+          ],
         ),
       ),
     );
