@@ -20,7 +20,7 @@ class _ClassesState extends State<Classes> {
         mainAxisSpacing: 0.3,
         crossAxisCount: 2,
         // Generate 100 widgets that display their index in the List.
-        children: List.generate(5, (index) {
+        children: List.generate(5, (index ) {
           return Center(
             child: Container(
               decoration: BoxDecoration(
