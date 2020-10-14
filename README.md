@@ -17,7 +17,6 @@
 [![Release](https://img.shields.io/badge/PRs-0-important.svg?style=for-the-badge)](https://shields.io/)
 [![Release](https://img.shields.io/badge/PRs-Welcome-blueviolet.svg?style=for-the-badge)](https://shields.io/)
 
-
 A Simple school timetable cross-platform-app implimented using Google Calendar API, Firebase authentication and cloudfirestore database and Flutter Framework. This application is Test Driven Developed.
 
 ## ✨Features and Checklists: Version 1
@@ -43,6 +42,3 @@ A Simple school timetable cross-platform-app implimented using Google Calendar A
 |                     table_calendar: ^2.2.3                |  Calendar Package UI                          |
 |                     flutter_datetime_picker: ^1.4.0       |  DateTimePicker  UI                           |
 |                     shared_preferences: ^0.5.12           |  Store User Auth data and manage navigation   |
-|                     googleapis: ^0.56.1                   |  Accessing Google APIs                        |
-|                     googleapis_auth: ^0.2.12              |  Google APIs Auth                             |
-|                     url_launcher: ^5.7.2                  |  Launching Calendar API OAUTH consent Screen  |

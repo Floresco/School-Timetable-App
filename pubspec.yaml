@@ -16,9 +16,6 @@ dependencies:
   firebase_core: ^0.4.0+9
   firebase_auth: ^0.14.0+5
   firebase_analytics: ^5.0.2
-  googleapis: ^0.56.1
-  googleapis_auth: ^0.2.12
-  url_launcher: ^5.7.2
   shared_preferences: ^0.5.12
   table_calendar: ^2.2.3
   flutter_datetime_picker: ^1.4.0
