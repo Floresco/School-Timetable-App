@@ -44,69 +44,114 @@ class _MyDrawerState extends State<MyDrawer> {
                   "Personal Information",
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
                 ),
-                // InkWell(
-                //   onTap: () {
-                //     showDialog(
-                //         context: context,
-                //         builder: (BuildContext context) {
-                //           return Dialog(
-                //             shape: RoundedRectangleBorder(
-                //                 borderRadius: BorderRadius.circular(10.0)),
-                //             child: Container(
-                //               height: 200,
-                //               child: Padding(
-                //                 padding: const EdgeInsets.all(12.0),
-                //                 child: Column(
-                //                   mainAxisAlignment: MainAxisAlignment.center,
-                //                   crossAxisAlignment:
-                //                       CrossAxisAlignment.center,
-                //                   children: [
-                //                     Text(
-                //                       "Schedule a new Lesson",
-                //                       style: TextStyle(
-                //                           fontWeight: FontWeight.bold,
-                //                           fontSize: 20),
-                //                     ),
-                //                     Row(
-                //                       mainAxisAlignment:
-                //                           MainAxisAlignment.spaceAround,
-                //                       children: [
-                //                         SizedBox(
-                //                           child: RaisedButton(
-                //                             onPressed: () {},
-                //                             child: Text(
-                //                               "Schedule",
-                //                               style: TextStyle(
-                //                                   color: Colors.white),
-                //                             ),
-                //                             color: Colors.orange,
-                //                           ),
-                //                         ),
-                //                         SizedBox(
-                //                           child: RaisedButton(
-                //                             onPressed: () {},
-                //                             child: Text(
-                //                               "Cancel",
-                //                               style: TextStyle(
-                //                                   color: Colors.white),
-                //                             ),
-                //                             color: Colors.deepOrange,
-                //                           ),
-                //                         ),
-                //                       ],
-                //                     )
-                //                   ],
-                //                 ),
-                //               ),
-                //             ),
-                //           );
-                //         });
-                //   },
-                //   child: Icon(
-                //     Icons.edit,
-                //     color: Colors.grey,
-                //   ),
-                // ),
+                InkWell(
+                  onTap: () {
+                    showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return Dialog(
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10.0)),
+                            child: Container(
+                              height: 200,
+                              child: Padding(
+                                padding: const EdgeInsets.all(12.0),
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Padding(
+                                      padding:
+                                          EdgeInsets.symmetric(vertical: 5),
+                                      child: TextFormField(
+                                        keyboardType:
+                                            TextInputType.emailAddress,
+                                        validator: (String value) {
+                                          if (value.isEmpty) {
+                                            return 'Please enter a valid name';
+                                          }
+                                        },
+                                        cursorColor: Colors.orange,
+                                        decoration: InputDecoration(
+                                          fillColor: Colors.orange,
+                                          focusColor: Colors.orange,
+                                          hoverColor: Colors.orange,
+                                          labelText: "Name",
+                                          border: OutlineInputBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(10),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding:
+                                          EdgeInsets.symmetric(vertical: 5),
+                                      child: TextFormField(
+                                        keyboardType:
+                                            TextInputType.emailAddress,
+                                        validator: (String value) {
+                                          if (value.isEmpty) {
+                                            return 'Please enter a valid email address';
+                                          }
+                                        },
+                                        cursorColor: Colors.orange,
+                                        decoration: InputDecoration(
+                                          fillColor: Colors.orange,
+                                          focusColor: Colors.orange,
+                                          hoverColor: Colors.orange,
+                                          labelText: "email",
+                                          border: OutlineInputBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(10),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceAround,
+                                      children: [
+                                        SizedBox(
+                                          child: RaisedButton(
+                                            onPressed: () {
+                                              Navigator.pop(context);
+                                            },
+                                            child: Text(
+                                              "Update",
+                                              style: TextStyle(
+                                                  color: Colors.white),
+                                            ),
+                                            color: Colors.orange,
+                                          ),
+                                        ),
+                                        SizedBox(
+                                          child: RaisedButton(
+                                            onPressed: () {
+                                              Navigator.pop(context);
+                                            },
+                                            child: Text(
+                                              "Cancel",
+                                              style: TextStyle(
+                                                  color: Colors.white),
+                                            ),
+                                            color: Colors.deepOrange,
+                                          ),
+                                        ),
+                                      ],
+                                    )
+                                  ],
+                                ),
+                              ),
+                            ),
+                          );
+                        });
+                  },
+                  child: Icon(
+                    Icons.edit,
+                    color: Colors.grey,
+                  ),
+                ),
               ],
             ),
           ),

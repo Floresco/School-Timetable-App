@@ -19,99 +19,87 @@ class _RootState extends State<Root> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(
-        primaryColor: Colors.orange,
-        primarySwatch: Colors.orange,
-        accentColor: Colors.orangeAccent,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
-      debugShowCheckedModeBanner: false,
-      home: DefaultTabController(
-        length: 3,
-        child: Scaffold(
-          appBar: AppBar(
-            iconTheme: IconThemeData(color: Colors.white),
-            title: Text(
-              "School Timetable",
-              style:
-                  TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-            ),
-            actions: [
-              InkWell(
-                onTap: () async {
-                  final FirebaseUser user = await _auth.currentUser();
-                  if (user == null) {
-                    Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (BuildContext context) =>
-                                        SignUp()));
-                    debugPrint("There is no current user signed In");
-                    return;
-                  }
-                  await _auth.signOut();
-                  final String uid = user.uid;
+    return DefaultTabController(
+      length: 3,
+      child: Scaffold(
+        appBar: AppBar(
+          iconTheme: IconThemeData(color: Colors.white),
+          title: Text(
+            "School Timetable",
+            style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+          ),
+          actions: [
+            InkWell(
+              onTap: () async {
+                final FirebaseUser user = await _auth.currentUser();
+                if (user == null) {
                   Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (BuildContext context) =>
-                                        SignUp()));
-                  debugPrint(uid + "user signed Out Successfully");
-                },
-                child: Icon(LineIcons.sign_out),
-              ),
-              SizedBox(
-                width: 20,
-              )
-            ],
-            centerTitle: true,
-            elevation: 5,
-            backgroundColor: Colors.orange,
-            bottom: TabBar(
-              unselectedLabelColor: Colors.white,
-              indicatorColor: Colors.white,
-              tabs: [
-                Tab(text: "Home"),
-                Tab(text: "Teachers"),
-                Tab(text: "Classes"),
-              ],
+                      context,
+                      MaterialPageRoute(
+                          builder: (BuildContext context) => SignUp()));
+                  debugPrint("There is no current user signed In");
+                  return;
+                }
+                await _auth.signOut();
+                final String uid = user.uid;
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (BuildContext context) => SignUp()));
+                debugPrint(uid + "user signed Out Successfully");
+              },
+              child: Icon(LineIcons.sign_out),
             ),
-          ),
-          drawer: MyDrawer(),
-          body: TabBarView(
-            children: [
-              MyHomePage(),
-              Teachers(),
-              Classes(),
+            SizedBox(
+              width: 20,
+            )
+          ],
+          centerTitle: true,
+          elevation: 5,
+          backgroundColor: Colors.orange,
+          bottom: TabBar(
+            unselectedLabelColor: Colors.white,
+            indicatorColor: Colors.white,
+            tabs: [
+              Tab(text: "Home"),
+              Tab(text: "Teachers"),
+              Tab(text: "Classes"),
             ],
           ),
-          bottomNavigationBar: Container(
-            decoration: BoxDecoration(color: Colors.transparent),
-            child: SafeArea(
-              child: Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 60.0, vertical: 10),
-                child: GNav(
-                    gap: 30,
-                    activeColor: Colors.white,
-                    iconSize: 24,
-                    padding: EdgeInsets.symmetric(horizontal: 45, vertical: 5),
-                    duration: Duration(milliseconds: 800),
-                    tabBackgroundColor: Colors.orange,
-                    tabs: [
-                      GButton(
-                        icon: LineIcons.calendar,
-                        text: 'Timetable',
-                      ),
-                    ],
-                    selectedIndex: _selectedIndex,
-                    onTabChange: (index) {
-                      setState(() {
-                        _selectedIndex = index;
-                      });
-                    }),
-              ),
+        ),
+        drawer: MyDrawer(),
+        body: TabBarView(
+          children: [
+            MyHomePage(),
+            Teachers(),
+            Classes(),
+          ],
+        ),
+        bottomNavigationBar: Container(
+          decoration: BoxDecoration(color: Colors.transparent),
+          child: SafeArea(
+            child: Padding(
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 60.0, vertical: 10),
+              child: GNav(
+                  gap: 30,
+                  activeColor: Colors.white,
+                  iconSize: 24,
+                  padding: EdgeInsets.symmetric(horizontal: 45, vertical: 5),
+                  duration: Duration(milliseconds: 800),
+                  tabBackgroundColor: Colors.orange,
+                  tabs: [
+                    GButton(
+                      icon: LineIcons.calendar,
+                      text: 'Timetable',
+                    ),
+                  ],
+                  selectedIndex: _selectedIndex,
+                  onTabChange: (index) {
+                    setState(() {
+                      _selectedIndex = index;
+                    });
+                  }),
             ),
           ),
         ),

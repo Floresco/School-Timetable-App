@@ -13,14 +13,14 @@ class _ClassesState extends State<Classes> {
         onPressed: () {},
         backgroundColor: Colors.orange,
         tooltip: "Add a new class",
-        child: Icon(Icons.add),
+        child: Icon(Icons.add, color: Colors.white,),
       ),
       body: GridView.count(
         crossAxisSpacing: 0.3,
         mainAxisSpacing: 0.3,
         crossAxisCount: 2,
         // Generate 100 widgets that display their index in the List.
-        children: List.generate(5, (index) {
+        children: List.generate(5, (index ) {
           return Center(
             child: Container(
               decoration: BoxDecoration(

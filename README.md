@@ -17,7 +17,6 @@
 [![Release](https://img.shields.io/badge/PRs-0-important.svg?style=for-the-badge)](https://shields.io/)
 [![Release](https://img.shields.io/badge/PRs-Welcome-blueviolet.svg?style=for-the-badge)](https://shields.io/)
 
-
 A Simple school timetable cross-platform-app implimented using Google Calendar API, Firebase authentication and cloudfirestore database and Flutter Framework. This application is Test Driven Developed.
 
 ## ✨Features and Checklists: Version 1
@@ -26,23 +25,20 @@ A Simple school timetable cross-platform-app implimented using Google Calendar A
 * [x] Frontend pages and widgets
 * [x] Android App Firebase Intergration
 * [x] Firebase Authentication - EmailPassword
-* [ ] Firebase Authentication - OAuth2 Google Auth Provider
-* [ ] Cloudfirestore database users, classes and teachers collection
-* [ ] Google Calendar API Write, read, update, delete, Lessons
+* [x] Google Calendar API Write, read, update, delete, Lessons
 * [ ] Adding automated tests - auth (email and google), cloudfirestore CRUD, GoogleCalendarAPI CRUD, Widget test
 * [ ] Github actions, automated tests and CI/CD
-* [ ] Documentation, UI writting etc
-* [ ] Prepping android, iOS apps for release
+* [x] Documentation, UI writting etc
+* [x] Prepping android, iOS apps for release (App Signing)
 * [ ] 🚀Going Live on Google Playstore
 
 ## 🔌 Plugins
 
-|                           Name                            |      Usage                |
-| :-------------------------------------------------------: | :-----------------------: |
-|                     firebase_core: ^0.4.0+9               |  Firebase Intergration    |
-|                     firebase_auth: ^0.14.0+5              |  Authentication           |
-|                     google_sign_in: ^4.5.4                |  OAuth2 google provider   |
-|                     firebase_analytics: ^5.0.2            |  Firebase Analytics       |
-|                     table_calendar: ^2.2.3                |  Calendar Package UI      |
-|                     flutter_datetime_picker: ^1.4.0       |  DateTimePicker  UI       |
-|                     shared_preferences: ^0.5.12           |  Store User Auth data     |
+|                           Name                            |      Usage                                    |
+| :-------------------------------------------------------: | :-------------------------------------------: |
+|                     firebase_core: ^0.4.0+9               |  Firebase Intergration                        |
+|                     firebase_auth: ^0.14.0+5              |  Email Password User Authentication           |
+|                     firebase_analytics: ^5.0.2            |  Firebase Analytics                           |
+|                     table_calendar: ^2.2.3                |  Calendar Package UI                          |
+|                     flutter_datetime_picker: ^1.4.0       |  DateTimePicker  UI                           |
+|                     shared_preferences: ^0.5.12           |  Store User Auth data and manage navigation   |
